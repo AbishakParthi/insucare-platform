@@ -16,7 +16,18 @@ export function createApp() {
   app.use(helmetMiddleware);
   app.use(
     cors({
-      origin: config.WEB_ORIGIN,
+      origin: (origin, callback) => {
+        if (!origin) return callback(null, true);
+        const allowedOrigins = config.WEB_ORIGIN.split(",").map((o) => o.trim());
+        if (
+          allowedOrigins.includes(origin) ||
+          (origin.startsWith("https://insucare-platform-") && origin.endsWith(".vercel.app"))
+        ) {
+          callback(null, true);
+        } else {
+          callback(new Error("Not allowed by CORS"));
+        }
+      },
       credentials: true
     })
   );
