@@ -4,18 +4,18 @@ import rateLimit from "express-rate-limit";
 import helmet from "helmet";
 import { ApiError } from "./error.js";
 
-export const helmetMiddleware = helmet({
+export const helmetMiddleware = (helmet as any)({
   crossOriginResourcePolicy: { policy: "cross-origin" }
 });
 
-export const apiRateLimiter = rateLimit({
+export const apiRateLimiter = (rateLimit as any)({
   windowMs: 15 * 60 * 1000,
   limit: 300,
   standardHeaders: true,
   legacyHeaders: false
 });
 
-export const authRateLimiter = rateLimit({
+export const authRateLimiter = (rateLimit as any)({
   windowMs: 15 * 60 * 1000,
   limit: 20,
   standardHeaders: true,
