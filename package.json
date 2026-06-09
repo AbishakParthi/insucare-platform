@@ -11,6 +11,8 @@
     "dev": "npm run dev --workspace=@insucare/web",
     "dev:api": "npm run dev --workspace=@insucare/api",
     "build": "npm run build --workspaces --if-present",
+    "build:api": "npm run build -w @insucare/domain && npm run build -w @insucare/api",
+    "start:api": "npm run start -w @insucare/api",
     "lint": "npm run lint --workspaces --if-present",
     "typecheck": "npm run typecheck --workspaces --if-present",
     "test": "npm run test --workspaces --if-present",
