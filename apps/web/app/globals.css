@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand-primary: #8b1116;
+  --brand-secondary: #a61b22;
+  --brand-accent: #d4af37;
+  --brand-ink: #1f2937;
+  --brand-porcelain: #f8fafc;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  color: var(--brand-ink);
+  background:
+    radial-gradient(circle at 10% 10%, rgba(212, 175, 55, 0.16), transparent 26rem),
+    radial-gradient(circle at 85% 8%, rgba(139, 17, 22, 0.1), transparent 24rem),
+    #fff;
+}
+
+::selection {
+  color: #fff;
+  background: var(--brand-primary);
+}
+
+.container-padded {
+  width: min(1180px, calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+.gold-rule {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.9), transparent);
+}
+
+.glass-card {
+  border: 1px solid rgba(139, 17, 22, 0.1);
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(18px);
+}
+
+.insurance-pattern {
+  background-size: 34px 34px;
+}
+
+.text-balance {
+  text-wrap: balance;
+}

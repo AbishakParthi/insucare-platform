@@ -1,0 +1,185 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  SUPER_ADMIN
+  ADMIN
+  EDITOR
+  VIEWER
+}
+
+enum PublishStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+enum LeadStatus {
+  NEW
+  CONTACTED
+  QUALIFIED
+  CLOSED
+  SPAM
+}
+
+model User {
+  id           String     @id @default(cuid())
+  name         String
+  email        String     @unique
+  passwordHash String
+  role         Role       @default(ADMIN)
+  isActive     Boolean    @default(true)
+  refreshHash  String?
+  auditLogs    AuditLog[]
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+}
+
+model Category {
+  id        String    @id @default(cuid())
+  name      String    @unique
+  slug      String    @unique
+  services  Service[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model Service {
+  id           String        @id @default(cuid())
+  title        String
+  slug         String        @unique
+  categoryId   String
+  category     Category      @relation(fields: [categoryId], references: [id])
+  summary      String
+  overview     String
+  benefits     String[]
+  coverage     String[]
+  claimProcess String[]
+  faqs         Json
+  status       PublishStatus @default(PUBLISHED)
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+}
+
+model BlogCategory {
+  id        String   @id @default(cuid())
+  name      String   @unique
+  slug      String   @unique
+  blogs     Blog[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Blog {
+  id          String        @id @default(cuid())
+  title       String
+  slug        String        @unique
+  excerpt     String
+  content     String
+  tags        String[]
+  readingTime String
+  publishedAt DateTime?
+  status      PublishStatus @default(PUBLISHED)
+  categoryId  String
+  category    BlogCategory  @relation(fields: [categoryId], references: [id])
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+}
+
+model Testimonial {
+  id        String        @id @default(cuid())
+  name      String
+  role      String
+  quote     String
+  imageUrl  String?
+  status    PublishStatus @default(PUBLISHED)
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+}
+
+model Partner {
+  id        String        @id @default(cuid())
+  name      String
+  slug      String        @unique
+  category  String
+  logoUrl   String?
+  status    PublishStatus @default(PUBLISHED)
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+}
+
+model Career {
+  id           String        @id @default(cuid())
+  title        String
+  slug         String        @unique
+  location     String
+  type         String
+  summary      String
+  description  String
+  status       PublishStatus @default(PUBLISHED)
+  applications Application[]
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+}
+
+model Application {
+  id          String     @id @default(cuid())
+  careerId    String?
+  career      Career?    @relation(fields: [careerId], references: [id])
+  name        String
+  email       String
+  phone       String
+  resumeUrl   String?
+  message     String
+  status      LeadStatus @default(NEW)
+  submittedAt DateTime   @default(now())
+}
+
+model Enquiry {
+  id        String     @id @default(cuid())
+  name      String
+  email     String
+  phone     String
+  interest  String
+  message   String
+  source    String
+  status    LeadStatus @default(NEW)
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+}
+
+model Media {
+  id          String   @id @default(cuid())
+  publicId    String   @unique
+  url         String
+  mimeType    String
+  size        Int
+  altText     String?
+  createdAt   DateTime @default(now())
+}
+
+model Setting {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  value     Json
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id])
+  action    String
+  entity    String
+  entityId  String?
+  ipAddress String?
+  metadata  Json?
+  createdAt DateTime @default(now())
+}
