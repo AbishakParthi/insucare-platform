@@ -27,7 +27,9 @@ export function ContactForm({ variant = "contact" }: { variant?: "contact" | "cl
 
   async function onSubmit(values: FormValues) {
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000/api/v1";
+      let apiUrl = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000/api/v1";
+      if (!apiUrl.endsWith("/api/v1")) apiUrl = `${apiUrl.replace(/\/$/, "")}/api/v1`;
+      
       const res = await fetch(`${apiUrl}/enquiries`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
