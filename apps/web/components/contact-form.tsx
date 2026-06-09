@@ -26,14 +26,20 @@ export function ContactForm({ variant = "contact" }: { variant?: "contact" | "cl
   });
 
   async function onSubmit(values: FormValues) {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000/api/v1";
-    await fetch(`${apiUrl}/enquiries`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ...values, source: variant })
-    });
-    reset();
-    alert("Thank you. The InsuCARE team will contact you shortly.");
+    try {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000/api/v1";
+      const res = await fetch(`${apiUrl}/enquiries`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...values, source: variant })
+      });
+      if (!res.ok) throw new Error("Failed to submit enquiry");
+      reset();
+      alert("Thank you. The InsuCARE team will contact you shortly.");
+    } catch (error) {
+      console.error(error);
+      alert("Something went wrong while submitting your form. Please try again later.");
+    }
   }
 
   return (
