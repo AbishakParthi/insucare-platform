@@ -4,6 +4,7 @@ import { company } from "@insucare/domain";
 import { FloatingActions } from "../components/floating-actions";
 import { Footer } from "../components/footer";
 import { Header } from "../components/header";
+import { ThemeProvider } from "../components/theme-provider";
 import "./globals.css";
 
 const display = Cormorant_Garamond({
@@ -51,11 +52,13 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en-IN" className={`${display.variable} ${sans.variable}`} suppressHydrationWarning>
-      <body className="font-sans antialiased" suppressHydrationWarning>
-        <Header />
-        <main>{children}</main>
-        <Footer />
-        <FloatingActions />
+      <body className="font-sans antialiased bg-white dark:bg-ink text-ink dark:text-porcelain transition-colors duration-300" suppressHydrationWarning>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+          <FloatingActions />
+        </ThemeProvider>
       </body>
     </html>
   );

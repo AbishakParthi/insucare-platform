@@ -21,11 +21,19 @@ html {
 body {
   min-height: 100vh;
   margin: 0;
+  background-color: #fff;
   color: var(--brand-ink);
-  background:
+  background-image:
     radial-gradient(circle at 10% 10%, rgba(212, 175, 55, 0.16), transparent 26rem),
-    radial-gradient(circle at 85% 8%, rgba(139, 17, 22, 0.1), transparent 24rem),
-    #fff;
+    radial-gradient(circle at 85% 8%, rgba(139, 17, 22, 0.1), transparent 24rem);
+}
+
+.dark body {
+  background-color: var(--brand-ink);
+  color: var(--brand-porcelain);
+  background-image:
+    radial-gradient(circle at 10% 10%, rgba(212, 175, 55, 0.08), transparent 26rem),
+    radial-gradient(circle at 85% 8%, rgba(139, 17, 22, 0.08), transparent 24rem);
 }
 
 ::selection {
@@ -47,6 +55,11 @@ body {
   border: 1px solid rgba(139, 17, 22, 0.1);
   background: rgba(255, 255, 255, 0.82);
   backdrop-filter: blur(18px);
+}
+
+.dark .glass-card {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(31, 41, 55, 0.6);
 }
 
 .insurance-pattern {

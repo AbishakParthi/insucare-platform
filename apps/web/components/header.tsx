@@ -7,13 +7,15 @@ import { usePathname } from "next/navigation";
 import { company, navLinks } from "@insucare/domain";
 import { Menu, Phone, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
+import { ThemeToggle } from "./theme-toggle";
+
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 border-b border-oxblood/10 bg-white/90 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-oxblood/10 dark:border-white/10 bg-white/90 dark:bg-ink/90 backdrop-blur-xl transition-colors duration-300">
       <div className="container-padded flex min-h-20 items-center justify-between gap-6">
         <Link href="/" className="flex items-center gap-3" aria-label="InsuCARE home" onClick={() => setIsOpen(false)}>
           <Image
@@ -28,7 +30,7 @@ export function Header() {
             IRDAI Registered
           </span>
         </Link>
-        <nav className="hidden items-center gap-6 text-sm font-semibold text-ink/80 lg:flex">
+        <nav className="hidden items-center gap-6 text-sm font-semibold text-ink/80 dark:text-porcelain/80 lg:flex">
           {navLinks.map((link) => (
             <Link 
               key={link.href} 
@@ -40,6 +42,7 @@ export function Header() {
           ))}
         </nav>
         <div className="hidden items-center gap-3 lg:flex">
+          <ThemeToggle />
           <Link
             href={`tel:${company.phone.replace(/\s/g, "")}`}
             className="inline-flex items-center gap-2 rounded-full border border-oxblood/15 px-4 py-2 text-sm font-bold text-oxblood"
@@ -51,11 +54,13 @@ export function Header() {
             Get Consultation
           </Link>
         </div>
-        <button 
-          className="rounded-full border border-oxblood/15 p-3 text-oxblood lg:hidden flex h-[46px] w-[46px] items-center justify-center overflow-hidden" 
-          aria-label={isOpen ? "Close navigation" : "Open navigation"}
-          onClick={() => setIsOpen(!isOpen)}
-        >
+        <div className="flex items-center gap-3 lg:hidden">
+          <ThemeToggle />
+          <button 
+            className="rounded-full border border-oxblood/15 dark:border-white/15 text-oxblood dark:text-white flex h-[46px] w-[46px] items-center justify-center overflow-hidden" 
+            aria-label={isOpen ? "Close navigation" : "Open navigation"}
+            onClick={() => setIsOpen(!isOpen)}
+          >
           <AnimatePresence mode="wait" initial={false}>
             {isOpen ? (
               <motion.div
@@ -80,6 +85,7 @@ export function Header() {
             )}
           </AnimatePresence>
         </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
@@ -90,7 +96,7 @@ export function Header() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="border-t border-oxblood/10 bg-white px-6 py-6 lg:hidden shadow-lg absolute w-full left-0 overflow-hidden"
+            className="border-t border-oxblood/10 dark:border-white/10 bg-white dark:bg-ink px-6 py-6 lg:hidden shadow-lg absolute w-full left-0 overflow-hidden"
           >
             <nav className="flex flex-col gap-6">
               {navLinks.map((link) => (
@@ -98,7 +104,7 @@ export function Header() {
                   key={link.href} 
                   href={link.href} 
                   onClick={() => setIsOpen(false)}
-                  className={`text-lg font-bold transition-colors ${pathname === link.href ? "text-oxblood" : "text-ink/80 hover:text-oxblood"}`}
+                  className={`text-lg font-bold transition-colors ${pathname === link.href ? "text-oxblood" : "text-ink/80 dark:text-porcelain/80 hover:text-oxblood dark:hover:text-oxblood"}`}
                 >
                   {link.label}
                 </Link>

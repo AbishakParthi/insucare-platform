@@ -4,7 +4,7 @@ import { Mail, MapPin, Phone } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="bg-ink text-white">
+    <footer className="bg-ink dark:bg-[#151c26] text-white">
       <div className="gold-rule" />
       <div className="container-padded grid gap-10 py-14 md:grid-cols-[1.3fr_.8fr_.8fr_1fr]">
         <div>
