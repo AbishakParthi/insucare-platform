@@ -52,11 +52,33 @@ export function Header() {
           </Link>
         </div>
         <button 
-          className="rounded-full border border-oxblood/15 p-3 text-oxblood lg:hidden" 
+          className="rounded-full border border-oxblood/15 p-3 text-oxblood lg:hidden flex h-[46px] w-[46px] items-center justify-center overflow-hidden" 
           aria-label={isOpen ? "Close navigation" : "Open navigation"}
           onClick={() => setIsOpen(!isOpen)}
         >
-          {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          <AnimatePresence mode="wait" initial={false}>
+            {isOpen ? (
+              <motion.div
+                key="close"
+                initial={{ opacity: 0, rotate: -90 }}
+                animate={{ opacity: 1, rotate: 0 }}
+                exit={{ opacity: 0, rotate: 90 }}
+                transition={{ duration: 0.2 }}
+              >
+                <X className="h-5 w-5" />
+              </motion.div>
+            ) : (
+              <motion.div
+                key="menu"
+                initial={{ opacity: 0, rotate: -90 }}
+                animate={{ opacity: 1, rotate: 0 }}
+                exit={{ opacity: 0, rotate: 90 }}
+                transition={{ duration: 0.2 }}
+              >
+                <Menu className="h-5 w-5" />
+              </motion.div>
+            )}
+          </AnimatePresence>
         </button>
       </div>
 
