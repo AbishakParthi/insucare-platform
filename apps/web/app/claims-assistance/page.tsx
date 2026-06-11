@@ -24,7 +24,7 @@ export default function ClaimsPage() {
                 <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-oxblood font-bold text-white">{index + 1}</span>
                 <div>
                   <h2 className="font-display text-3xl font-bold">{step}</h2>
-                  <p className="mt-2 text-sm leading-7 text-ink/ dark:text-porcelain/">
+                  <p className="mt-2 text-sm leading-7 text-ink/65 dark:text-porcelain/65">
                     Our team guides the next action, helps organize documents and coordinates with insurers or appointed representatives so you are not left guessing.
                   </p>
                 </div>

@@ -25,7 +25,7 @@ export default function AdminPage() {
           <div key={module.label} className="rounded-[2rem] border border-oxblood/10 dark:border-white/10 bg-white dark:bg-white/5 p-7 shadow-sm">
             <module.icon className="h-8 w-8 text-oxblood dark:text-champagne" />
             <p className="mt-5 font-display text-5xl font-bold">{module.value}</p>
-            <p className="mt-1 font-bold text-ink/ dark:text-porcelain/">{module.label}</p>
+            <p className="mt-1 font-bold text-ink/65 dark:text-porcelain/65">{module.label}</p>
           </div>
         ))}
       </div>

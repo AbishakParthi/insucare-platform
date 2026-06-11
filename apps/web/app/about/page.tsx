@@ -27,10 +27,10 @@ export default function AboutPage() {
               At Insucare India Insurance Broking, our mission is to help individuals and businesses make informed insurance decisions through transparent advice, tailored solutions, and unwavering customer support. We believe insurance is not merely a financial product but a promise of security and peace of mind.
             </p>
           </div>
-          <div className="rounded-[2rem] border border-oxblood/10 dark:border-white/10 bg-porcelain p-8">
+          <div className="rounded-[2rem] border border-oxblood/10 dark:border-white/10 bg-porcelain dark:bg-[#253040] p-8">
             <div className="mx-auto grid aspect-[4/5] max-w-sm place-items-center rounded-[2rem] bg-gradient-to-br from-oxblood via-garnet to-ink text-center text-white shadow-premium">
               <div>
-                <div className="mx-auto grid h-28 w-28 place-items-center rounded-full border border-champagne/60 bg-white dark:bg-white/5/10 font-display text-5xl font-bold">SA</div>
+                <div className="mx-auto grid h-28 w-28 place-items-center rounded-full border border-champagne/60 bg-white/10 font-display text-5xl font-bold">SA</div>
                 <p className="mt-5 text-sm font-bold uppercase tracking-[0.24em] text-champagne">Executive Profile</p>
                 <p className="mt-2 font-display text-3xl font-bold">{company.managingDirector}</p>
               </div>
@@ -39,7 +39,7 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      <Section title="Vision, Mission and Compliance" className="bg-porcelain">
+      <Section title="Vision, Mission and Compliance" className="bg-porcelain dark:bg-[#253040]">
         <div className="grid gap-5 md:grid-cols-3">
           {[
             { icon: Eye, title: "Vision", text: "To become a trusted insurance broking partner known for clarity, responsiveness and ethical advisory." },
@@ -49,7 +49,7 @@ export default function AboutPage() {
             <div key={item.title} className="rounded-[2rem] bg-white dark:bg-white/5 p-7 shadow-sm">
               <item.icon className="h-9 w-9 text-oxblood dark:text-champagne" />
               <h3 className="mt-5 font-display text-3xl font-bold">{item.title}</h3>
-              <p className="mt-3 text-sm leading-7 text-ink/ dark:text-porcelain/">{item.text}</p>
+              <p className="mt-3 text-sm leading-7 text-ink/65 dark:text-porcelain/65">{item.text}</p>
             </div>
           ))}
         </div>
@@ -67,7 +67,7 @@ export default function AboutPage() {
         <div className="mt-10 rounded-[2rem] border border-oxblood/10 dark:border-white/10 p-8">
           <HeartHandshake className="h-10 w-10 text-oxblood dark:text-champagne" />
           <h3 className="mt-4 font-display text-3xl font-bold">Customer Commitment</h3>
-          <p className="mt-3 leading-8 text-ink/ dark:text-porcelain/">
+          <p className="mt-3 leading-8 text-ink/70 dark:text-porcelain/70">
             We help clients understand what is covered, what is excluded, how claims work and how renewals should be reviewed. Our goal is to make insurance decisions simpler, safer and more accountable.
           </p>
         </div>

@@ -37,9 +37,9 @@ export default async function ServiceDetailPage({ params }: Props) {
               <h2 className="font-display text-4xl font-bold">Frequently Asked Questions</h2>
               <div className="mt-5 grid gap-4">
                 {service.faqs.map((faq) => (
-                  <div key={faq.question} className="rounded-2xl bg-porcelain p-5">
+                  <div key={faq.question} className="rounded-2xl bg-porcelain dark:bg-[#253040] p-5">
                     <h3 className="font-bold">{faq.question}</h3>
-                    <p className="mt-2 text-sm leading-7 text-ink/ dark:text-porcelain/">{faq.answer}</p>
+                    <p className="mt-2 text-sm leading-7 text-ink/65 dark:text-porcelain/65">{faq.answer}</p>
                   </div>
                 ))}
               </div>
@@ -60,7 +60,7 @@ function DetailBlock({ title, items }: { title: string; items: string[] }) {
       <h2 className="font-display text-4xl font-bold">{title}</h2>
       <div className="mt-5 grid gap-3">
         {items.map((item) => (
-          <p key={item} className="flex gap-3 text-sm leading-7 text-ink/ dark:text-porcelain/">
+          <p key={item} className="flex gap-3 text-sm leading-7 text-ink/70 dark:text-porcelain/70">
             <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-oxblood dark:text-champagne" />
             {item}
           </p>

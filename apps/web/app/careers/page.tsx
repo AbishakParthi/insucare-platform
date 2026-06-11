@@ -20,7 +20,7 @@ export default function CareersPage() {
               <Briefcase className="h-8 w-8 text-oxblood dark:text-champagne" />
               <h2 className="mt-4 font-display text-3xl font-bold">{job.title}</h2>
               <p className="mt-2 text-sm font-bold text-champagne">{job.location} · {job.type}</p>
-              <p className="mt-3 text-sm leading-7 text-ink/ dark:text-porcelain/">{job.summary}</p>
+              <p className="mt-3 text-sm leading-7 text-ink/65 dark:text-porcelain/65">{job.summary}</p>
             </Link>
           ))}
         </div>

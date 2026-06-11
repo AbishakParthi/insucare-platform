@@ -17,7 +17,7 @@ export default function PrivacyPolicyPage() {
 function LegalPage({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <Section eyebrow="Legal" title={title}>
-      <div className="rounded-[2rem] border border-oxblood/10 dark:border-white/10 bg-white dark:bg-white/5 p-8 text-lg leading-9 text-ink/ dark:text-porcelain/ shadow-sm">{children}</div>
+      <div className="rounded-[2rem] border border-oxblood/10 dark:border-white/10 bg-white dark:bg-white/5 p-8 text-lg leading-9 text-ink/75 dark:text-porcelain/75 shadow-sm">{children}</div>
     </Section>
   );
 }

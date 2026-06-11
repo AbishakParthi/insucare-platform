@@ -20,17 +20,17 @@ export default function ContactPage() {
           <div className="rounded-[2rem] border border-oxblood/10 dark:border-white/10 bg-white dark:bg-white/5 p-7 shadow-sm">
             <MapPin className="h-8 w-8 text-oxblood dark:text-champagne" />
             <h2 className="mt-4 font-display text-3xl font-bold">Office Address</h2>
-            <p className="mt-3 leading-8 text-ink/ dark:text-porcelain/">{company.addressLines.join(", ")}</p>
+            <p className="mt-3 leading-8 text-ink/70 dark:text-porcelain/70">{company.addressLines.join(", ")}</p>
           </div>
-          <div className="rounded-[2rem] bg-porcelain p-7">
+          <div className="rounded-[2rem] bg-porcelain dark:bg-[#253040] p-7">
             <Clock className="h-8 w-8 text-oxblood dark:text-champagne" />
             <h2 className="mt-4 font-display text-3xl font-bold">Business Hours</h2>
-            <p className="mt-3 text-ink/ dark:text-porcelain/">{company.businessHours}</p>
+            <p className="mt-3 text-ink/70 dark:text-porcelain/70">{company.businessHours}</p>
           </div>
         </div>
         <div>
           <ContactForm />
-          <div className="mt-6 overflow-hidden rounded-[2rem] border border-oxblood/10 dark:border-white/10 bg-porcelain">
+          <div className="mt-6 overflow-hidden rounded-[2rem] border border-oxblood/10 dark:border-white/10 bg-porcelain dark:bg-[#253040]">
             <iframe
               title="InsuCARE Hyderabad Office Map"
               src="https://www.google.com/maps?q=Goodlife%20Retreat%20Kakatiya%20Nagar%20Hyderabad%20500007&output=embed"
@@ -49,7 +49,7 @@ function ContactCard({ icon, title, value, href }: { icon: React.ReactNode; titl
     <a href={href} className="rounded-[2rem] border border-oxblood/10 dark:border-white/10 bg-white dark:bg-white/5 p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-premium">
       <div className="text-oxblood dark:text-champagne [&>svg]:h-8 [&>svg]:w-8">{icon}</div>
       <h2 className="mt-4 font-display text-3xl font-bold">{title}</h2>
-      <p className="mt-2 text-ink/ dark:text-porcelain/">{value}</p>
+      <p className="mt-2 text-ink/70 dark:text-porcelain/70">{value}</p>
     </a>
   );
 }
