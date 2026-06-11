@@ -17,7 +17,9 @@ const config: Config = {
         sans: ["var(--font-sans)", "Trebuchet MS", "sans-serif"]
       },
       boxShadow: {
-        premium: "0 24px 80px rgba(31, 41, 55, 0.14)"
+        premium: "0 24px 80px rgba(31, 41, 55, 0.14), 0 8px 32px rgba(31, 41, 55, 0.08)",
+        "premium-hover": "0 32px 90px rgba(31, 41, 55, 0.2), 0 12px 40px rgba(31, 41, 55, 0.12)",
+        glow: "0 0 20px rgba(212, 175, 55, 0.4)"
       },
       backgroundImage: {
         "insurance-grid":

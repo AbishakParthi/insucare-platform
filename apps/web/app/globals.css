@@ -24,16 +24,16 @@ body {
   background-color: #fff;
   color: var(--brand-ink);
   background-image:
-    radial-gradient(circle at 10% 10%, rgba(212, 175, 55, 0.16), transparent 26rem),
-    radial-gradient(circle at 85% 8%, rgba(139, 17, 22, 0.1), transparent 24rem);
+    radial-gradient(circle at 10% 10%, rgba(212, 175, 55, 0.18), transparent 30rem),
+    radial-gradient(circle at 85% 8%, rgba(139, 17, 22, 0.12), transparent 28rem);
 }
 
 .dark body {
   background-color: var(--brand-ink);
   color: var(--brand-porcelain);
   background-image:
-    radial-gradient(circle at 10% 10%, rgba(212, 175, 55, 0.08), transparent 26rem),
-    radial-gradient(circle at 85% 8%, rgba(139, 17, 22, 0.08), transparent 24rem);
+    radial-gradient(circle at 10% 10%, rgba(212, 175, 55, 0.1), transparent 30rem),
+    radial-gradient(circle at 85% 8%, rgba(139, 17, 22, 0.1), transparent 28rem);
 }
 
 ::selection {
@@ -52,14 +52,27 @@ body {
 }
 
 .glass-card {
-  border: 1px solid rgba(139, 17, 22, 0.1);
-  background: rgba(255, 255, 255, 0.82);
-  backdrop-filter: blur(18px);
+  border: 1px solid rgba(139, 17, 22, 0.08);
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(24px);
+  box-shadow: 0 8px 32px rgba(31, 41, 55, 0.04);
+  transition: all 0.4s cubic-bezier(0.21, 0.47, 0.32, 0.98);
+}
+
+.glass-card:hover {
+  border: 1px solid rgba(139, 17, 22, 0.15);
+  box-shadow: 0 12px 48px rgba(31, 41, 55, 0.08);
 }
 
 .dark .glass-card {
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(31, 41, 55, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(31, 41, 55, 0.4);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.dark .glass-card:hover {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4);
 }
 
 .insurance-pattern {

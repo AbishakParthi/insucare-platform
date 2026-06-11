@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { FadeInStagger, FadeInStaggerItem } from "./animated";
 
 type SectionProps = {
   eyebrow?: string;
@@ -10,15 +11,27 @@ type SectionProps = {
 
 export function Section({ eyebrow, title, intro, children, className = "" }: SectionProps) {
   return (
-    <section className={`py-20 ${className}`}>
-      <div className="container-padded">
+    <section className={`py-20 overflow-hidden ${className}`}>
+      <FadeInStagger className="container-padded">
         <div className="mb-10 max-w-3xl">
-          {eyebrow ? <p className="text-sm font-extrabold uppercase tracking-[0.3em] text-oxblood dark:text-champagne">{eyebrow}</p> : null}
-          <h2 className="mt-3 font-display text-4xl font-bold leading-tight text-current md:text-6xl">{title}</h2>
-          {intro ? <p className="mt-5 text-lg leading-8 opacity-70">{intro}</p> : null}
+          {eyebrow ? (
+            <FadeInStaggerItem>
+              <p className="text-sm font-extrabold uppercase tracking-[0.3em] text-oxblood dark:text-champagne">{eyebrow}</p>
+            </FadeInStaggerItem>
+          ) : null}
+          <FadeInStaggerItem>
+            <h2 className="mt-3 font-display text-4xl font-bold leading-tight text-current md:text-6xl">{title}</h2>
+          </FadeInStaggerItem>
+          {intro ? (
+            <FadeInStaggerItem>
+              <p className="mt-5 text-lg leading-8 opacity-70">{intro}</p>
+            </FadeInStaggerItem>
+          ) : null}
         </div>
-        {children}
-      </div>
+        <FadeInStaggerItem>
+          {children}
+        </FadeInStaggerItem>
+      </FadeInStagger>
     </section>
   );
 }
