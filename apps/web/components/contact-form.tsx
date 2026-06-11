@@ -91,6 +91,10 @@ export function ContactForm({ variant = "contact" }: { variant?: "contact" | "cl
           border-color: rgba(255, 255, 255, 0.15);
           color: #F8FAFC;
         }
+        :global(.dark) .input option {
+          background: #1F2937;
+          color: #F8FAFC;
+        }
         .input:focus {
           border-color: #8b1116;
           box-shadow: 0 0 0 4px rgba(139, 17, 22, 0.08);
@@ -106,7 +110,7 @@ export function ContactForm({ variant = "contact" }: { variant?: "contact" | "cl
 
 function Field({ label, error, children }: { label: string; error?: string; children: React.ReactNode }) {
   return (
-    <label className="grid gap-2 text-sm font-bold text-ink dark:text-porcelain">
+    <label className="flex flex-col gap-2 text-sm font-bold text-ink dark:text-porcelain">
       {label}
       {children}
       {error ? <span className="text-xs font-semibold text-oxblood dark:text-champagne">{error}</span> : null}
