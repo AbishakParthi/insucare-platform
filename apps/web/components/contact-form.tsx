@@ -45,7 +45,7 @@ export function ContactForm({ variant = "contact" }: { variant?: "contact" | "cl
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="glass-card grid gap-5 rounded-[2rem] p-6 shadow-premium">
+    <form onSubmit={handleSubmit(onSubmit)} className="glass-card grid gap-5 rounded-[2rem] p-6 shadow-premium self-start">
       <div className="grid gap-5 md:grid-cols-2">
         <Field label="Full name" error={errors.name?.message}>
           <input {...register("name")} className="input" placeholder="Your name" />
