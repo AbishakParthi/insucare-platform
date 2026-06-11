@@ -84,10 +84,20 @@ export function ContactForm({ variant = "contact" }: { variant?: "contact" | "cl
           background: white;
           padding: 0.85rem 1rem;
           outline: none;
+          color: #1F2937;
+        }
+        :global(.dark) .input {
+          background: rgba(255, 255, 255, 0.05);
+          border-color: rgba(255, 255, 255, 0.15);
+          color: #F8FAFC;
         }
         .input:focus {
           border-color: #8b1116;
           box-shadow: 0 0 0 4px rgba(139, 17, 22, 0.08);
+        }
+        :global(.dark) .input:focus {
+          border-color: #D4AF37;
+          box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.1);
         }
       `}</style>
     </form>
