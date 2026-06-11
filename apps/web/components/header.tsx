@@ -31,16 +31,16 @@ export function Header() {
       }`}
     >
       <div className={`container-padded flex items-center justify-between gap-6 transition-all duration-500 ${isScrolled ? "min-h-20" : "min-h-24"}`}>
-        <Link href="/" className="flex items-center gap-3 transition-transform hover:scale-105" aria-label="InsuCARE home" onClick={() => setIsOpen(false)}>
+        <Link href="/" className="flex items-center gap-3 transition-transform hover:scale-105 shrink-0" aria-label="InsuCARE home" onClick={() => setIsOpen(false)}>
           <Image
             src="/brand/insucare-logo.jpeg"
             alt="InsuCARE logo"
             width={132}
             height={72}
-            className="h-12 w-auto rounded-sm object-contain shadow-sm"
+            className="h-12 w-auto rounded-sm object-contain shadow-sm shrink-0"
             priority
           />
-          <span className="hidden border-l border-oxblood/20 pl-3 text-xs font-bold uppercase tracking-[0.28em] text-oxblood dark:text-champagne md:block">
+          <span className="hidden border-l border-oxblood/20 pl-3 text-xs font-bold uppercase tracking-[0.28em] text-oxblood dark:text-champagne xl:block whitespace-nowrap">
             IRDAI Registered
           </span>
         </Link>
