@@ -26,10 +26,8 @@ export function Header() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled 
-          ? "border-b border-oxblood/10 dark:border-white/10 bg-white/80 dark:bg-ink/80 backdrop-blur-2xl shadow-sm" 
-          : "bg-transparent border-transparent pt-4"
+      className={`sticky top-0 z-50 transition-all duration-500 border-b border-oxblood/10 dark:border-white/10 bg-white/85 dark:bg-ink/85 backdrop-blur-2xl ${
+        isScrolled ? "shadow-sm" : ""
       }`}
     >
       <div className={`container-padded flex items-center justify-between gap-6 transition-all duration-500 ${isScrolled ? "min-h-20" : "min-h-24"}`}>
