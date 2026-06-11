@@ -26,12 +26,12 @@ export function SearchablePartners({ partners }: { partners: Partner[] }) {
           value={query}
           onChange={(event) => setQuery(event.target.value)}
           placeholder="Search insurer"
-          className="rounded-full border border-oxblood/10 px-5 py-3 outline-none focus:border-oxblood"
+          className="rounded-full border border-oxblood/10 dark:border-white/10 px-5 py-3 outline-none focus:border-oxblood"
         />
         <select
           value={category}
           onChange={(event) => setCategory(event.target.value)}
-          className="rounded-full border border-oxblood/10 px-5 py-3 outline-none focus:border-oxblood"
+          className="rounded-full border border-oxblood/10 dark:border-white/10 px-5 py-3 outline-none focus:border-oxblood"
         >
           {categories.map((item) => (
             <option key={item}>{item}</option>
@@ -40,7 +40,7 @@ export function SearchablePartners({ partners }: { partners: Partner[] }) {
       </div>
       <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
         {filtered.map((partner) => (
-          <div key={partner.slug} className="rounded-[1.6rem] border border-oxblood/10 bg-white p-6 text-center shadow-sm">
+          <div key={partner.slug} className="rounded-[1.6rem] border border-oxblood/10 dark:border-white/10 bg-white dark:bg-white/5 p-6 text-center shadow-sm">
             <div className="mx-auto grid h-16 w-16 place-items-center rounded-2xl bg-oxblood font-display text-2xl font-bold text-white">
               {partner.name.split(" ").map((part) => part[0]).slice(0, 2).join("")}
             </div>

@@ -19,12 +19,12 @@ export default function ClaimsPage() {
       <div className="grid gap-8 lg:grid-cols-[1fr_420px]">
         <div className="grid gap-5">
           {claimSteps.map((step, index) => (
-            <div key={step} className="rounded-[2rem] border border-oxblood/10 bg-white p-7 shadow-sm">
+            <div key={step} className="rounded-[2rem] border border-oxblood/10 dark:border-white/10 bg-white dark:bg-white/5 p-7 shadow-sm">
               <div className="flex items-start gap-5">
                 <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-oxblood font-bold text-white">{index + 1}</span>
                 <div>
                   <h2 className="font-display text-3xl font-bold">{step}</h2>
-                  <p className="mt-2 text-sm leading-7 text-ink/65">
+                  <p className="mt-2 text-sm leading-7 text-ink/ dark:text-porcelain/">
                     Our team guides the next action, helps organize documents and coordinates with insurers or appointed representatives so you are not left guessing.
                   </p>
                 </div>

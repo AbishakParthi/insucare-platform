@@ -22,10 +22,10 @@ export default function AdminPage() {
     <Section eyebrow="Admin" title="Operational cockpit for InsuCARE teams." intro="Production APIs include authentication, RBAC, audit logs and CRUD endpoints. This screen provides the first dashboard shell.">
       <div className="grid gap-5 md:grid-cols-3">
         {modules.map((module) => (
-          <div key={module.label} className="rounded-[2rem] border border-oxblood/10 bg-white p-7 shadow-sm">
+          <div key={module.label} className="rounded-[2rem] border border-oxblood/10 dark:border-white/10 bg-white dark:bg-white/5 p-7 shadow-sm">
             <module.icon className="h-8 w-8 text-oxblood dark:text-champagne" />
             <p className="mt-5 font-display text-5xl font-bold">{module.value}</p>
-            <p className="mt-1 font-bold text-ink/65">{module.label}</p>
+            <p className="mt-1 font-bold text-ink/ dark:text-porcelain/">{module.label}</p>
           </div>
         ))}
       </div>

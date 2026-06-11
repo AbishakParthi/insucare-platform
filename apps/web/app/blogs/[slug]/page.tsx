@@ -27,7 +27,7 @@ export default async function BlogDetailPage({ params }: Props) {
   return (
     <>
       <Section eyebrow={post.category} title={post.title} intro={post.excerpt}>
-        <article className="prose prose-lg max-w-none rounded-[2rem] border border-oxblood/10 bg-white p-8 shadow-sm">
+        <article className="prose prose-lg max-w-none rounded-[2rem] border border-oxblood/10 dark:border-white/10 bg-white dark:bg-white/5 p-8 shadow-sm">
           <p>
             Insurance decisions become easier when you evaluate coverage, exclusions, claim process, insurer service and long-term suitability together. This article gives a practical framework for that evaluation.
           </p>
