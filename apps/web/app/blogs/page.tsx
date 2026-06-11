@@ -13,7 +13,7 @@ export default function BlogsPage() {
     <Section eyebrow="Blogs" title="Insurance knowledge that helps you decide better.">
       <div className="mb-8 flex flex-wrap gap-3">
         {blogCategories.map((category) => (
-          <span key={category} className="rounded-full border border-oxblood/10 px-4 py-2 text-sm font-bold text-oxblood">
+          <span key={category} className="rounded-full border border-oxblood/10 px-4 py-2 text-sm font-bold text-oxblood dark:text-champagne">
             {category}
           </span>
         ))}
@@ -24,7 +24,7 @@ export default function BlogsPage() {
             <p className="text-xs font-bold uppercase tracking-[0.24em] text-champagne">{post.category}</p>
             <h2 className="mt-4 font-display text-3xl font-bold">{post.title}</h2>
             <p className="mt-3 text-sm leading-7 text-ink/65">{post.excerpt}</p>
-            <p className="mt-5 text-sm font-bold text-oxblood">{post.readingTime}</p>
+            <p className="mt-5 text-sm font-bold text-oxblood dark:text-champagne">{post.readingTime}</p>
           </Link>
         ))}
       </div>

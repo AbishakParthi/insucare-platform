@@ -9,7 +9,7 @@ export default function BrochurePage() {
     <Section eyebrow="Brochure" title="InsuCARE Company Brochure" intro="Use browser print to save this production-ready brochure as PDF.">
       <div className="rounded-[2rem] border border-oxblood/10 bg-white p-8 shadow-sm print:shadow-none">
         <h2 className="font-display text-4xl font-bold">{company.legalName}</h2>
-        <p className="mt-3 text-oxblood font-bold">{company.license}</p>
+        <p className="mt-3 text-oxblood dark:text-champagne font-bold">{company.license}</p>
         <p className="mt-5 leading-8 text-ink/70">
           InsuCARE provides insurance broking, risk advisory, claims assistance and multi-insurer comparison for individuals, families, SMEs, startups and enterprises.
         </p>

@@ -44,10 +44,10 @@ export default function HomePage() {
               <div className="rounded-[2rem] bg-white dark:bg-ink/80 p-6 text-ink dark:text-white">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-xs font-bold uppercase tracking-[0.25em] text-oxblood">Risk Command View</p>
+                    <p className="text-xs font-bold uppercase tracking-[0.25em] text-oxblood dark:text-champagne">Risk Command View</p>
                     <h2 className="mt-2 font-display text-4xl font-bold">Insurance clarity, not complexity.</h2>
                   </div>
-                  <ShieldCheck className="h-12 w-12 text-oxblood" />
+                  <ShieldCheck className="h-12 w-12 text-oxblood dark:text-champagne" />
                 </div>
                 <div className="mt-8 grid gap-4">
                   {["Coverage gap review", "Multi-insurer comparison", "Claims desk coordination"].map((item, index) => (
@@ -69,7 +69,7 @@ export default function HomePage() {
         <div className="grid gap-5 md:grid-cols-4">
           {stats.map((stat) => (
             <div key={stat.label} className="rounded-[2rem] border border-oxblood/10 dark:border-white/10 bg-white dark:bg-white/5 p-7 shadow-sm">
-              <p className="font-display text-5xl font-bold text-oxblood">{stat.value}</p>
+              <p className="font-display text-5xl font-bold text-oxblood dark:text-champagne">{stat.value}</p>
               <p className="mt-2 font-semibold text-ink/70 dark:text-porcelain/70">{stat.label}</p>
             </div>
           ))}
@@ -94,11 +94,11 @@ export default function HomePage() {
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {featured.map((service) => (
             <Link key={service.slug} href={`/services/${service.slug}`} className="rounded-[2rem] bg-white dark:bg-white/5 dark:border-white/10 border border-transparent p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-premium">
-              <Building2 className="h-9 w-9 text-oxblood" />
-              <p className="mt-5 text-xs font-extrabold uppercase tracking-[0.24em] text-champagne">{service.category}</p>
+              <Building2 className="h-9 w-9 text-oxblood dark:text-champagne" />
+              <p className="mt-5 text-xs font-extrabold uppercase tracking-[0.24em] text-oxblood dark:text-champagne">{service.category}</p>
               <h3 className="mt-3 font-display text-3xl font-bold">{service.title}</h3>
               <p className="mt-3 text-sm leading-7 text-ink/65 dark:text-porcelain/65">{service.summary}</p>
-              <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-oxblood">
+              <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-oxblood dark:text-champagne">
                 Read more <ArrowRight className="h-4 w-4" />
               </span>
             </Link>
@@ -110,7 +110,7 @@ export default function HomePage() {
         <div className="grid gap-4 md:grid-cols-3">
           {claimSteps.map((step, index) => (
             <div key={step} className="rounded-[1.6rem] border border-oxblood/10 dark:border-white/10 bg-white dark:bg-white/5 p-6">
-              <span className="text-sm font-extrabold text-champagne">Step {index + 1}</span>
+              <span className="text-sm font-extrabold text-oxblood dark:text-champagne">Step {index + 1}</span>
               <h3 className="mt-2 font-display text-2xl font-bold">{step}</h3>
             </div>
           ))}
@@ -146,8 +146,8 @@ export default function HomePage() {
         <div className="grid gap-5 md:grid-cols-3">
           {blogs.map((post) => (
             <Link key={post.slug} href={`/blogs/${post.slug}`} className="rounded-[2rem] bg-white dark:bg-white/5 dark:border-white/10 border border-transparent p-7 shadow-sm">
-              <BarChart3 className="h-8 w-8 text-oxblood" />
-              <p className="mt-4 text-xs font-bold uppercase tracking-[0.24em] text-champagne">{post.category}</p>
+              <BarChart3 className="h-8 w-8 text-oxblood dark:text-champagne" />
+              <p className="mt-4 text-xs font-bold uppercase tracking-[0.24em] text-oxblood dark:text-champagne">{post.category}</p>
               <h3 className="mt-3 font-display text-3xl font-bold">{post.title}</h3>
               <p className="mt-3 text-sm leading-7 text-ink/65 dark:text-porcelain/65">{post.excerpt}</p>
             </Link>

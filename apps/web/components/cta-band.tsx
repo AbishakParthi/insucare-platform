@@ -13,7 +13,7 @@ export function CtaBand() {
           </p>
         </div>
         <div className="flex flex-wrap gap-3">
-          <Link href="/contact" className="rounded-full bg-white px-6 py-3 font-bold text-oxblood">Get Free Consultation</Link>
+          <Link href="/contact" className="rounded-full bg-white px-6 py-3 font-bold text-oxblood dark:text-champagne">Get Free Consultation</Link>
           <Link href={`tel:${company.phone.replace(/\s/g, "")}`} className="rounded-full border border-white/30 px-6 py-3 font-bold text-white">Call {company.phone}</Link>
         </div>
       </div>

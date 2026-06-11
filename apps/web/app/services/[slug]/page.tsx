@@ -61,7 +61,7 @@ function DetailBlock({ title, items }: { title: string; items: string[] }) {
       <div className="mt-5 grid gap-3">
         {items.map((item) => (
           <p key={item} className="flex gap-3 text-sm leading-7 text-ink/70">
-            <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-oxblood" />
+            <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-oxblood dark:text-champagne" />
             {item}
           </p>
         ))}

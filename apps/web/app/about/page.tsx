@@ -47,7 +47,7 @@ export default function AboutPage() {
             { icon: Scale, title: "Compliance", text: `${company.legalName} operates under ${company.license}.` }
           ].map((item) => (
             <div key={item.title} className="rounded-[2rem] bg-white p-7 shadow-sm">
-              <item.icon className="h-9 w-9 text-oxblood" />
+              <item.icon className="h-9 w-9 text-oxblood dark:text-champagne" />
               <h3 className="mt-5 font-display text-3xl font-bold">{item.title}</h3>
               <p className="mt-3 text-sm leading-7 text-ink/65">{item.text}</p>
             </div>
@@ -65,7 +65,7 @@ export default function AboutPage() {
           ))}
         </div>
         <div className="mt-10 rounded-[2rem] border border-oxblood/10 p-8">
-          <HeartHandshake className="h-10 w-10 text-oxblood" />
+          <HeartHandshake className="h-10 w-10 text-oxblood dark:text-champagne" />
           <h3 className="mt-4 font-display text-3xl font-bold">Customer Commitment</h3>
           <p className="mt-3 leading-8 text-ink/70">
             We help clients understand what is covered, what is excluded, how claims work and how renewals should be reviewed. Our goal is to make insurance decisions simpler, safer and more accountable.

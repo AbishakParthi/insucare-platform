@@ -23,7 +23,7 @@ export default function AdminPage() {
       <div className="grid gap-5 md:grid-cols-3">
         {modules.map((module) => (
           <div key={module.label} className="rounded-[2rem] border border-oxblood/10 bg-white p-7 shadow-sm">
-            <module.icon className="h-8 w-8 text-oxblood" />
+            <module.icon className="h-8 w-8 text-oxblood dark:text-champagne" />
             <p className="mt-5 font-display text-5xl font-bold">{module.value}</p>
             <p className="mt-1 font-bold text-ink/65">{module.label}</p>
           </div>
