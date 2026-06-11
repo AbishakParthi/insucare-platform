@@ -15,7 +15,7 @@ export function CtaBand() {
           </p>
         </SlideInLeft>
         <SlideInRight className="flex flex-wrap gap-3">
-          <Link href="/contact" className="rounded-full bg-white px-6 py-3 font-bold text-oxblood dark:text-champagne transition-all hover:bg-champagne hover:text-ink hover:scale-105 active:scale-95 shadow-lg">Get Free Consultation</Link>
+          <Link href="/contact" className="rounded-full bg-white px-6 py-3 font-bold text-oxblood dark:text-champagne transition-all hover:bg-champagne hover:text-ink dark:hover:text-ink hover:scale-105 active:scale-95 shadow-lg">Get Free Consultation</Link>
           <Link href={`tel:${company.phone.replace(/\s/g, "")}`} className="rounded-full border border-white/30 px-6 py-3 font-bold text-white transition-all hover:bg-white/10 hover:border-white hover:scale-105 active:scale-95">Call {company.phone}</Link>
         </SlideInRight>
       </div>
