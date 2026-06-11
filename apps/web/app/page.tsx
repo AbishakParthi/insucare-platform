@@ -135,8 +135,8 @@ export default function HomePage() {
               <div className="grid h-14 w-14 place-items-center rounded-full bg-champagne font-display text-2xl font-bold text-ink dark:text-porcelain">
                 {item.name.charAt(0)}
               </div>
-              <p className="mt-5 text-sm leading-7 text-white/75">&ldquo;{item.quote}&rdquo;</p>
-              <p className="mt-5 font-bold text-white">{item.name}</p>
+              <p className="mt-5 text-sm leading-7 text-ink/80 dark:text-white/80">&ldquo;{item.quote}&rdquo;</p>
+              <p className="mt-5 font-bold text-ink dark:text-white">{item.name}</p>
               <p className="text-sm text-champagne">{item.role}</p>
             </div>
           ))}
