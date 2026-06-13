@@ -21,7 +21,7 @@ const schema = z.object({
   SMTP_USER: z.string().optional(),
   SMTP_PASS: z.string().optional(),
   MAIL_FROM: z.string().default("InsuCARE <umasrikanth@insucareindia.com>"),
-  ADMIN_EMAIL: z.string().email().default("abishakeparthi4@gmail.com"),
+  ADMIN_EMAIL: z.string().email().default("umasrikanth@insucareindia.com"),
   WEB3FORMS_ACCESS_KEY: z.string().optional()
 });
 
