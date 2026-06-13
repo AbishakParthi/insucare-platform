@@ -1,36 +1,36 @@
-import nodemailer from "nodemailer";
 import { company } from "@insucare/domain";
 import { config } from "../config.js";
 
-const transporter =
-  config.SMTP_HOST && config.SMTP_PORT
-    ? nodemailer.createTransport({
-        host: config.SMTP_HOST,
-        port: config.SMTP_PORT,
-        secure: config.SMTP_PORT === 465,
-        auth: config.SMTP_USER ? { user: config.SMTP_USER, pass: config.SMTP_PASS } : undefined
-      })
-    : null;
-
 export async function notifyEnquiry(values: { name: string; email: string; phone: string; interest: string; message: string }) {
-  if (!transporter) return;
+  if (!config.WEB3FORMS_ACCESS_KEY) {
+    console.warn("WEB3FORMS_ACCESS_KEY is not configured.");
+    return;
+  }
 
   try {
-    await transporter.sendMail({
-      from: config.MAIL_FROM,
-      to: config.ADMIN_EMAIL,
-      replyTo: values.email,
-      subject: `New InsuCARE enquiry: ${values.interest}`,
-      text: `Name: ${values.name}\nEmail: ${values.email}\nPhone: ${values.phone}\nInterest: ${values.interest}\n\n${values.message}`
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      },
+      body: JSON.stringify({
+        access_key: config.WEB3FORMS_ACCESS_KEY,
+        name: values.name,
+        email: values.email,
+        phone: values.phone,
+        interest: values.interest,
+        message: values.message,
+        subject: `New InsuCARE enquiry: ${values.interest}`,
+        from_name: company.displayName
+      })
     });
 
-    await transporter.sendMail({
-      from: config.MAIL_FROM,
-      to: values.email,
-      subject: "We received your InsuCARE enquiry",
-      text: `Dear ${values.name},\n\nThank you for contacting ${company.displayName}. Our advisory team will review your request and respond shortly.\n\nRegards,\n${company.displayName}`
-    });
+    const result = await response.json();
+    if (!response.ok) {
+      console.error("Web3Forms error:", result);
+    }
   } catch (error) {
-    console.error("Failed to send enquiry emails:", error);
+    console.error("Failed to send enquiry via Web3Forms:", error);
   }
 }
