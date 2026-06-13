@@ -36,6 +36,25 @@ export function ContactForm({ variant = "contact" }: { variant?: "contact" | "cl
         body: JSON.stringify({ ...values, source: variant })
       });
       if (!res.ok) throw new Error("Failed to submit enquiry");
+
+      const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+      if (accessKey) {
+        await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify({
+            access_key: accessKey,
+            name: values.name,
+            email: values.email,
+            phone: values.phone,
+            interest: values.interest,
+            message: values.message,
+            subject: `New InsuCARE enquiry: ${values.interest}`,
+            from_name: "InsuCARE"
+          })
+        });
+      }
+
       reset();
       alert("Thank you. The InsuCARE team will contact you shortly.");
     } catch (error) {
