@@ -2,7 +2,7 @@
 
 export function PartnerLogo({ partner }: { partner: { name: string; slug: string; logoExt?: string } }) {
   return (
-    <div className="relative flex h-full w-full items-center justify-center">
+    <div className="relative flex h-full w-full items-center justify-center overflow-hidden rounded-md">
       <img
         src={`/partners/${partner.slug}.${partner.logoExt || "png"}`}
         alt={partner.name}
@@ -10,7 +10,7 @@ export function PartnerLogo({ partner }: { partner: { name: string; slug: string
           partner.slug === "icici-prudential"
             ? "scale-[2.25]"
             : partner.slug === "bajaj-allianz"
-              ? "scale-[1.5]"
+              ? "scale-[2.5]"
               : ""
         }`}
         onError={(e) => {
