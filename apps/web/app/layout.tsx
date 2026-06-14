@@ -52,7 +52,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en-IN" className={`${display.variable} ${sans.variable}`} suppressHydrationWarning>
-      <body className="font-sans antialiased bg-white dark:bg-ink text-ink dark:text-porcelain transition-colors duration-300" suppressHydrationWarning>
+      <body className="font-sans antialiased bg-white dark:bg-ink text-ink dark:text-porcelain transition-colors duration-300 overflow-x-clip" suppressHydrationWarning>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header />
           <main className="overflow-x-hidden">{children}</main>
