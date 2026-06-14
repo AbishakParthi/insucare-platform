@@ -4,7 +4,7 @@ export const company = {
   industry: "Insurance Broking & Risk Advisory",
   license: "IRDAI / DB 959 / 2022",
   managingDirector: "Saranya Ayyasami",
-  email: "umasrikanth@insucareindia.com",
+  email: "saranya@insucareindia.com",
   phone: "+91 9493502304",
   whatsapp: "+91 9493502304",
   addressLines: [

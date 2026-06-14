@@ -20,8 +20,8 @@ const schema = z.object({
   SMTP_PORT: z.coerce.number().optional(),
   SMTP_USER: z.string().optional(),
   SMTP_PASS: z.string().optional(),
-  MAIL_FROM: z.string().default("InsuCARE <umasrikanth@insucareindia.com>"),
-  ADMIN_EMAIL: z.string().email().default("umasrikanth@insucareindia.com"),
+  MAIL_FROM: z.string().default("InsuCARE <saranya@insucareindia.com>"),
+  ADMIN_EMAIL: z.string().email().default("saranya@insucareindia.com"),
   WEB3FORMS_ACCESS_KEY: z.string().optional()
 });
 

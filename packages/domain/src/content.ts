@@ -109,7 +109,6 @@ export const services: Service[] = [
 ];
 
 export const stats = [
-  { value: "1000+", label: "Happy Clients" },
   { value: "50+", label: "Insurance Solutions" },
   { value: "20+", label: "Insurance Partners" },
   { value: "98%", label: "Client Satisfaction" }

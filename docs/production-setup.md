@@ -44,7 +44,7 @@ npm run seed
 
 Default seeded admin:
 
-- Email: `admin@insucareindia.com`
+- Email: `saranya@insucareindia.com`
 - Password: `ChangeMe@12345`
 
 Change this password immediately after first login.

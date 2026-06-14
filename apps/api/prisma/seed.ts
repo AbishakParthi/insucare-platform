@@ -4,11 +4,11 @@ import { prisma } from "../src/db.js";
 
 async function main() {
   await prisma.user.upsert({
-    where: { email: "admin@insucareindia.com" },
+    where: { email: "saranya@insucareindia.com" },
     update: {},
     create: {
       name: "InsuCARE Admin",
-      email: "admin@insucareindia.com",
+      email: "saranya@insucareindia.com",
       passwordHash: await bcrypt.hash("ChangeMe@12345", 12),
       role: "SUPER_ADMIN"
     }
