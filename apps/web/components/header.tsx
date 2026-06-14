@@ -40,11 +40,11 @@ export function Header() {
             className="h-12 w-auto rounded-sm object-contain shadow-sm shrink-0"
             priority
           />
-          <span className="hidden border-l border-oxblood/20 pl-3 text-xs font-bold uppercase tracking-[0.28em] text-oxblood dark:text-champagne 2xl:block whitespace-nowrap">
+          <span className="hidden border-l border-oxblood/20 pl-2 xl:pl-3 text-[10px] xl:text-xs font-bold uppercase tracking-wider text-oxblood dark:text-champagne xl:block whitespace-nowrap">
             IRDAI Registered
           </span>
         </Link>
-        <nav className="hidden items-center gap-3 lg:gap-4 xl:gap-5 text-xs xl:text-sm font-semibold text-ink/80 dark:text-porcelain/80 lg:flex">
+        <nav className="hidden items-center gap-2 lg:gap-3 xl:gap-4 text-xs xl:text-sm font-semibold text-ink/80 dark:text-porcelain/80 lg:flex">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
