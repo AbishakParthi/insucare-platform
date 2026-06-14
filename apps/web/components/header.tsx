@@ -40,11 +40,11 @@ export function Header() {
             className="h-12 w-auto rounded-sm object-contain shadow-sm shrink-0"
             priority
           />
-          <span className="hidden border-l border-oxblood/20 pl-3 text-xs font-bold uppercase tracking-[0.28em] text-oxblood dark:text-champagne xl:block whitespace-nowrap">
+          <span className="hidden border-l border-oxblood/20 pl-3 text-xs font-bold uppercase tracking-[0.28em] text-oxblood dark:text-champagne 2xl:block whitespace-nowrap">
             IRDAI Registered
           </span>
         </Link>
-        <nav className="hidden items-center gap-3 lg:gap-4 xl:gap-8 text-xs xl:text-sm font-semibold text-ink/80 dark:text-porcelain/80 lg:flex">
+        <nav className="hidden items-center gap-3 lg:gap-4 xl:gap-5 text-xs xl:text-sm font-semibold text-ink/80 dark:text-porcelain/80 lg:flex">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
@@ -72,7 +72,7 @@ export function Header() {
             <Phone className="h-4 w-4" />
             {company.phone}
           </Link>
-          <Link href="/contact" className="rounded-full bg-oxblood px-3 py-1.5 xl:px-5 xl:py-2.5 text-xs xl:text-sm font-bold text-white shadow-premium transition-all hover:bg-garnet hover:scale-105 active:scale-95 hover:shadow-glow whitespace-nowrap">
+          <Link href="/contact" className="rounded-full bg-oxblood px-3 py-1.5 xl:px-4 xl:py-2 text-xs xl:text-sm font-bold text-white shadow-premium transition-all hover:bg-garnet hover:scale-105 active:scale-95 hover:shadow-glow whitespace-nowrap">
             Get Consultation
           </Link>
         </div>
