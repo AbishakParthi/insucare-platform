@@ -6,13 +6,11 @@ export function PartnerLogo({ partner }: { partner: { name: string; slug: string
       <img
         src={`/partners/${partner.slug}.${partner.logoExt || "png"}`}
         alt={partner.name}
-        className={`max-h-full max-w-full object-contain ${
-          partner.slug === "icici-prudential"
-            ? "scale-[2.25]"
-            : partner.slug === "bajaj-allianz"
-              ? "scale-[2.5]"
-              : ""
-        }`}
+        className={`${
+          partner.slug === "bajaj-allianz"
+            ? "h-full w-full object-cover"
+            : "max-h-full max-w-full object-contain"
+        } ${partner.slug === "icici-prudential" ? "scale-[2.25]" : ""}`}
         onError={(e) => {
           (e.currentTarget as HTMLImageElement).style.display = "none";
           const sibling = e.currentTarget.nextElementSibling as HTMLElement;
