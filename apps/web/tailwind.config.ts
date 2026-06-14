@@ -24,6 +24,15 @@ const config: Config = {
       backgroundImage: {
         "insurance-grid":
           "linear-gradient(rgba(139,17,22,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(139,17,22,.06) 1px, transparent 1px)"
+      },
+      animation: {
+        marquee: "marquee 40s linear infinite"
+      },
+      keyframes: {
+        marquee: {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(calc(-100% - 1rem))" }
+        }
       }
     }
   },

@@ -82,3 +82,8 @@ body {
 .text-balance {
   text-wrap: balance;
 }
+
+.mask-fade-edges {
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}

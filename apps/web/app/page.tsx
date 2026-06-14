@@ -143,13 +143,30 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section eyebrow="Insurance Partners" title="Multi-insurer access for better comparison.">
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-6">
-          {partners.slice(0, 12).map((partner) => (
-            <div key={partner.name} className="grid min-h-24 place-items-center rounded-2xl border border-oxblood/10 dark:border-white/10 bg-white dark:bg-white/5 p-4 text-center text-sm font-extrabold text-ink/75 dark:text-porcelain/75">
-              {partner.name}
-            </div>
-          ))}
+      <Section eyebrow="Insurance Partners" title="Multi-insurer access for better comparison." className="overflow-hidden">
+        <div className="relative flex w-full flex-col gap-4 overflow-hidden mask-fade-edges py-4">
+          <div className="flex w-max animate-marquee gap-4 hover:[animation-play-state:paused]">
+            {[...partners, ...partners].map((partner, index) => (
+              <div
+                key={`${partner.slug}-${index}`}
+                className="flex h-24 w-48 shrink-0 items-center justify-center rounded-2xl border border-oxblood/10 dark:border-white/10 bg-white dark:bg-white/5 p-4 text-center text-sm font-extrabold text-ink/75 dark:text-porcelain/75 transition-all hover:border-oxblood/30 hover:shadow-md"
+              >
+                <div className="relative flex h-full w-full items-center justify-center">
+                  <img
+                    src={`/partners/${partner.slug}.png`}
+                    alt={partner.name}
+                    className="max-h-full max-w-full object-contain"
+                    onError={(e) => {
+                      (e.currentTarget as HTMLImageElement).style.display = "none";
+                      const sibling = e.currentTarget.nextElementSibling as HTMLElement;
+                      if (sibling) sibling.classList.remove("hidden");
+                    }}
+                  />
+                  <span className="hidden leading-tight">{partner.name}</span>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </Section>
 
