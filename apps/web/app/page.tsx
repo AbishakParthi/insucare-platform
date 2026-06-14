@@ -4,6 +4,7 @@ import { ArrowRight, BadgeCheck, BarChart3, Building2, FileCheck, Handshake, Shi
 import { CtaBand } from "../components/cta-band";
 import { Section } from "../components/section";
 import { FadeIn, FadeInStagger, FadeInStaggerItem, ScaleInHover } from "../components/animated";
+import { PartnerLogo } from "../components/partner-logo";
 
 export default function HomePage() {
   const featured = services.slice(0, 6);
@@ -151,19 +152,7 @@ export default function HomePage() {
                 key={`${partner.slug}-${index}`}
                 className="flex h-24 w-48 shrink-0 items-center justify-center rounded-2xl border border-oxblood/10 dark:border-white/10 bg-white dark:bg-white/5 p-4 text-center text-sm font-extrabold text-ink/75 dark:text-porcelain/75 transition-all hover:border-oxblood/30 hover:shadow-md"
               >
-                <div className="relative flex h-full w-full items-center justify-center">
-                  <img
-                    src={`/partners/${partner.slug}.png`}
-                    alt={partner.name}
-                    className="max-h-full max-w-full object-contain"
-                    onError={(e) => {
-                      (e.currentTarget as HTMLImageElement).style.display = "none";
-                      const sibling = e.currentTarget.nextElementSibling as HTMLElement;
-                      if (sibling) sibling.classList.remove("hidden");
-                    }}
-                  />
-                  <span className="hidden leading-tight">{partner.name}</span>
-                </div>
+                <PartnerLogo partner={partner} />
               </div>
             ))}
           </div>
