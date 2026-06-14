@@ -6,7 +6,9 @@ export function PartnerLogo({ partner }: { partner: { name: string; slug: string
       <img
         src={`/partners/${partner.slug}.${partner.logoExt || "png"}`}
         alt={partner.name}
-        className="max-h-full max-w-full object-contain"
+        className={`max-h-full max-w-full object-contain ${
+          ["icici-prudential", "bajaj-allianz"].includes(partner.slug) ? "scale-[1.5]" : ""
+        }`}
         onError={(e) => {
           (e.currentTarget as HTMLImageElement).style.display = "none";
           const sibling = e.currentTarget.nextElementSibling as HTMLElement;
