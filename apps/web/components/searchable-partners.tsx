@@ -1,11 +1,13 @@
 "use client";
 
 import { useDeferredValue, useState } from "react";
+import { PartnerLogo } from "./partner-logo";
 
 type Partner = {
   name: string;
   slug: string;
   category: string;
+  logoExt?: string;
 };
 
 export function SearchablePartners({ partners }: { partners: Partner[] }) {
@@ -41,8 +43,8 @@ export function SearchablePartners({ partners }: { partners: Partner[] }) {
       <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
         {filtered.map((partner) => (
           <div key={partner.slug} className="rounded-[1.6rem] border border-oxblood/10 dark:border-white/10 bg-white dark:bg-white/5 p-6 text-center shadow-sm">
-            <div className="mx-auto grid h-16 w-16 place-items-center rounded-2xl bg-oxblood font-display text-2xl font-bold text-white">
-              {partner.name.split(" ").map((part) => part[0]).slice(0, 2).join("")}
+            <div className="mx-auto h-20 w-40">
+              <PartnerLogo partner={partner} />
             </div>
             <h2 className="mt-4 font-bold">{partner.name}</h2>
             <p className="mt-1 text-xs font-semibold uppercase tracking-[0.18em] text-champagne">{partner.category}</p>
