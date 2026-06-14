@@ -139,7 +139,7 @@ export const partners = [
   { name: "SBI Life", ext: "svg" },
   { name: "Max Life", ext: "png" },
   { name: "Tata AIA", ext: "png" },
-  { name: "Bajaj Allianz", ext: "png" },
+  { name: "Bajaj Allianz", ext: "jpg" },
   { name: "Aditya Birla Sun Life", ext: "webp" },
   { name: "Kotak Life", ext: "png" },
   { name: "ICICI Lombard", ext: "svg" },
