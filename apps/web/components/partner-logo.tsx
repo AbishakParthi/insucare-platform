@@ -7,7 +7,11 @@ export function PartnerLogo({ partner }: { partner: { name: string; slug: string
         src={`/partners/${partner.slug}.${partner.logoExt || "png"}`}
         alt={partner.name}
         className={`max-h-full max-w-full object-contain ${
-          ["icici-prudential", "bajaj-allianz"].includes(partner.slug) ? "scale-[2.25]" : ""
+          partner.slug === "icici-prudential"
+            ? "scale-[2.25]"
+            : partner.slug === "bajaj-allianz"
+              ? "scale-[1.5]"
+              : ""
         }`}
         onError={(e) => {
           (e.currentTarget as HTMLImageElement).style.display = "none";
