@@ -44,7 +44,7 @@ export function Header() {
             IRDAI Registered
           </span>
         </Link>
-        <nav className="hidden items-center gap-8 text-sm font-semibold text-ink/80 dark:text-porcelain/80 lg:flex">
+        <nav className="hidden items-center gap-4 xl:gap-8 text-sm font-semibold text-ink/80 dark:text-porcelain/80 lg:flex">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
@@ -63,16 +63,16 @@ export function Header() {
             );
           })}
         </nav>
-        <div className="hidden items-center gap-3 lg:flex">
+        <div className="hidden items-center gap-2 xl:gap-3 lg:flex">
           <ThemeToggle />
           <Link
             href={`tel:${company.phone.replace(/\s/g, "")}`}
-            className="inline-flex items-center gap-2 rounded-full border border-oxblood/15 dark:border-white/15 px-4 py-2 text-sm font-bold text-oxblood dark:text-white transition-all hover:border-oxblood dark:hover:border-champagne hover:text-oxblood dark:hover:text-champagne hover:scale-105 active:scale-95"
+            className="inline-flex items-center gap-2 rounded-full border border-oxblood/15 dark:border-white/15 px-3 py-2 xl:px-4 xl:py-2 text-xs xl:text-sm font-bold text-oxblood dark:text-white transition-all hover:border-oxblood dark:hover:border-champagne hover:text-oxblood dark:hover:text-champagne hover:scale-105 active:scale-95"
           >
             <Phone className="h-4 w-4" />
             {company.phone}
           </Link>
-          <Link href="/contact" className="rounded-full bg-oxblood px-5 py-2.5 text-sm font-bold text-white shadow-premium transition-all hover:bg-garnet hover:scale-105 active:scale-95 hover:shadow-glow">
+          <Link href="/contact" className="rounded-full bg-oxblood px-4 py-2 xl:px-5 xl:py-2.5 text-xs xl:text-sm font-bold text-white shadow-premium transition-all hover:bg-garnet hover:scale-105 active:scale-95 hover:shadow-glow">
             Get Consultation
           </Link>
         </div>

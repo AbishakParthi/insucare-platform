@@ -16,14 +16,12 @@
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
 }
 
 body {
   min-height: 100vh;
   margin: 0;
   background-color: #fff;
-  overflow-x: hidden;
   color: var(--brand-ink);
   background-image:
     radial-gradient(circle at 10% 10%, rgba(212, 175, 55, 0.18), transparent 30rem),
