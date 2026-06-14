@@ -1,10 +1,10 @@
 "use client";
 
-export function PartnerLogo({ partner }: { partner: { name: string; slug: string } }) {
+export function PartnerLogo({ partner }: { partner: { name: string; slug: string; logoExt?: string } }) {
   return (
     <div className="relative flex h-full w-full items-center justify-center">
       <img
-        src={`/partners/${partner.slug}.png`}
+        src={`/partners/${partner.slug}.${partner.logoExt || "png"}`}
         alt={partner.name}
         className="max-h-full max-w-full object-contain"
         onError={(e) => {

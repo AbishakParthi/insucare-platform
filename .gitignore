@@ -12,3 +12,6 @@ tmp
 Thumbs.db
 pgsql/
 *.zip
+
+# Ignore Antigravity executable
+Antigravity-x64.exe
