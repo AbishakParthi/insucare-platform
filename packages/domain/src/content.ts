@@ -160,7 +160,7 @@ export const partners = [
   logoExt: ext,
   slug: name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, ""),
   category:
-    name.includes("Life") || name === "LIC" || name === "Tata AIA" || name === "Kotak Life"
+    name.includes("Life") || name === "LIC" || name === "Tata AIA" || name === "Kotak Life" || name === "ICICI Prudential"
       ? "Life Insurance"
       : name.includes("Health") || name === "Niva Bupa" || name === "Care Health" || name === "ManipalCigna"
         ? "Health Insurance"
