@@ -5,7 +5,7 @@ import { ArrowRight, Shield } from "lucide-react";
 import { CtaBand } from "../../components/cta-band";
 import { Section } from "../../components/section";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.insucareindia.com";
+const siteUrl = "https://insucare-platform-web.vercel.app";
 const pageUrl = `${siteUrl}/services`;
 
 export const metadata: Metadata = {

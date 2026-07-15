@@ -7,7 +7,7 @@ import { Section } from "../components/section";
 import { FadeIn, FadeInStagger, FadeInStaggerItem, ScaleInHover } from "../components/animated";
 import { PartnerLogo } from "../components/partner-logo";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.insucareindia.com";
+const siteUrl = "https://insucare-platform-web.vercel.app";
 
 export const metadata: Metadata = {
   alternates: {

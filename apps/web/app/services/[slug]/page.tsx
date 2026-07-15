@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const service = services.find((item) => item.slug === slug);
   if (!service) return {};
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.insucareindia.com";
+  const siteUrl = "https://insucare-platform-web.vercel.app";
   const serviceUrl = `${siteUrl}/services/${slug}`;
 
   return {

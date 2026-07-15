@@ -4,7 +4,7 @@ import { Clock, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { ContactForm } from "../../components/contact-form";
 import { Section } from "../../components/section";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.insucareindia.com";
+const siteUrl = "https://insucare-platform-web.vercel.app";
 const pageUrl = `${siteUrl}/contact`;
 
 export const metadata: Metadata = {

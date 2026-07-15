@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = blogs.find((item) => item.slug === slug);
   if (!post) return {};
   
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.insucareindia.com";
+  const siteUrl = "https://insucare-platform-web.vercel.app";
   const postUrl = `${siteUrl}/blogs/${slug}`;
 
   return {
@@ -43,7 +43,7 @@ export default async function BlogDetailPage({ params }: Props) {
   const post = blogs.find((item) => item.slug === slug);
   if (!post) notFound();
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.insucareindia.com";
+  const siteUrl = "https://insucare-platform-web.vercel.app";
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
