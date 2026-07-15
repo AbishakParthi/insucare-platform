@@ -1,23 +1,29 @@
 "use client";
 
+import Image from "next/image";
+import { useState } from "react";
+
 export function PartnerLogo({ partner }: { partner: { name: string; slug: string; logoExt?: string } }) {
+  const [error, setError] = useState(false);
+
   return (
     <div className="relative flex h-full w-full items-center justify-center overflow-hidden rounded-md">
-      <img
-        src={`/partners/${partner.slug}.${partner.logoExt || "png"}`}
-        alt={partner.name}
-        className={`${
-          partner.slug === "bajaj-allianz"
-            ? "h-full w-full object-cover"
-            : "max-h-full max-w-full object-contain"
-        } ${partner.slug === "icici-prudential" ? "scale-[2.25]" : ""}`}
-        onError={(e) => {
-          (e.currentTarget as HTMLImageElement).style.display = "none";
-          const sibling = e.currentTarget.nextElementSibling as HTMLElement;
-          if (sibling) sibling.classList.remove("hidden");
-        }}
-      />
-      <span className="hidden leading-tight">{partner.name}</span>
+      {!error ? (
+        <Image
+          src={`/partners/${partner.slug}.${partner.logoExt || "png"}`}
+          alt={`${partner.name} logo`}
+          fill
+          sizes="(max-width: 768px) 100vw, 200px"
+          className={`${
+            partner.slug === "bajaj-allianz"
+              ? "object-cover"
+              : "object-contain"
+          } ${partner.slug === "icici-prudential" ? "scale-[2.25]" : ""}`}
+          onError={() => setError(true)}
+        />
+      ) : (
+        <span className="leading-tight text-center px-2">{partner.name}</span>
+      )}
     </div>
   );
 }

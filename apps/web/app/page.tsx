@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { brand, blogs, claimSteps, partners, services, stats, testimonials, whyChooseUs } from "@insucare/domain";
 import { ArrowRight, BadgeCheck, BarChart3, Building2, FileCheck, Handshake, ShieldCheck, Sparkles } from "lucide-react";
@@ -6,15 +7,23 @@ import { Section } from "../components/section";
 import { FadeIn, FadeInStagger, FadeInStaggerItem, ScaleInHover } from "../components/animated";
 import { PartnerLogo } from "../components/partner-logo";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.insucareindia.com";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: `${siteUrl}`
+  }
+};
+
 export default function HomePage() {
   const featured = services.slice(0, 6);
 
   return (
     <>
-      <section className="relative overflow-hidden bg-ink text-white">
-        <div className="absolute inset-0 bg-insurance-grid insurance-pattern opacity-20" />
-        <div className="absolute -right-24 top-16 h-96 w-96 rounded-full bg-champagne/20 blur-3xl animate-pulse" />
-        <div className="absolute -left-16 bottom-8 h-80 w-80 rounded-full bg-oxblood/60 blur-3xl animate-pulse" />
+      <section className="relative overflow-hidden bg-ink text-white" aria-label="Hero Section">
+        <div className="absolute inset-0 bg-insurance-grid insurance-pattern opacity-20" aria-hidden="true" />
+        <div className="absolute -right-24 top-16 h-96 w-96 rounded-full bg-champagne/20 blur-3xl animate-pulse" aria-hidden="true" />
+        <div className="absolute -left-16 bottom-8 h-80 w-80 rounded-full bg-oxblood/60 blur-3xl animate-pulse" aria-hidden="true" />
         <FadeInStagger className="container-padded relative grid min-h-[760px] items-center gap-12 py-20 lg:grid-cols-[1.05fr_.95fr]">
           <div>
             <FadeInStaggerItem>
@@ -41,7 +50,7 @@ export default function HomePage() {
             <FadeInStaggerItem className="mt-10 grid gap-3 sm:grid-cols-2">
               {["IRDAI Registered", "Expert Insurance Advisors", "Claims Assistance", "Corporate Risk Specialists"].map((badge) => (
                 <div key={badge} className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-4 py-3 backdrop-blur-md">
-                  <BadgeCheck className="h-5 w-5 text-champagne" />
+                  <BadgeCheck className="h-5 w-5 text-champagne" aria-hidden="true" />
                   <span className="text-sm font-bold">{badge}</span>
                 </div>
               ))}
@@ -49,13 +58,13 @@ export default function HomePage() {
           </div>
           <FadeInStaggerItem className="relative">
             <div className="glass-card rounded-[2.5rem] border-white/15 bg-white/10 p-6 text-white shadow-premium">
-              <div className="rounded-[2rem] bg-white dark:bg-ink/80 p-6 text-ink dark:text-porcelain dark:text-white transition-shadow duration-500 hover:shadow-premium-hover">
+              <div className="rounded-[2rem] bg-white dark:bg-ink/80 p-6 text-ink dark:text-porcelain transition-shadow duration-500 hover:shadow-premium-hover">
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-xs font-bold uppercase tracking-[0.25em] text-oxblood dark:text-champagne">Risk Command View</p>
                     <h2 className="mt-2 font-display text-4xl font-bold">Insurance clarity, not complexity.</h2>
                   </div>
-                  <ShieldCheck className="h-12 w-12 text-oxblood dark:text-champagne" />
+                  <ShieldCheck className="h-12 w-12 text-oxblood dark:text-champagne" aria-hidden="true" />
                 </div>
                 <div className="mt-8 grid gap-4">
                   {["Coverage gap review", "Multi-insurer comparison", "Claims desk coordination"].map((item, index) => (
@@ -89,7 +98,7 @@ export default function HomePage() {
           {whyChooseUs.map((item) => (
             <ScaleInHover key={item}>
               <div className="group h-full rounded-[2rem] border border-oxblood/10 dark:border-white/10 bg-white dark:bg-white/5 p-7 shadow-sm transition-all hover:shadow-premium-hover hover:border-champagne/50">
-                <Sparkles className="h-8 w-8 text-champagne" />
+                <Sparkles className="h-8 w-8 text-champagne" aria-hidden="true" />
                 <h3 className="mt-5 font-display text-3xl font-bold">{item}</h3>
                 <p className="mt-3 text-sm leading-7 text-ink/65 dark:text-porcelain/65">
                   Practical insurance guidance delivered with clear documentation, transparent recommendations and responsive service.
@@ -104,13 +113,13 @@ export default function HomePage() {
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {featured.map((service) => (
             <ScaleInHover key={service.slug}>
-              <Link href={`/services/${service.slug}`} className="block h-full rounded-[2rem] bg-white dark:bg-white/5 dark:border-white/10 border border-transparent p-7 shadow-sm transition-all hover:shadow-premium-hover">
-                <Building2 className="h-9 w-9 text-oxblood dark:text-champagne" />
+              <Link href={`/services/${service.slug}`} className="flex flex-col h-full rounded-[2rem] bg-white dark:bg-white/5 dark:border-white/10 border border-transparent p-7 shadow-sm transition-all hover:shadow-premium-hover focus:outline-none focus:ring-4 focus:ring-oxblood dark:focus:ring-champagne">
+                <Building2 className="h-9 w-9 text-oxblood dark:text-champagne" aria-hidden="true" />
                 <p className="mt-5 text-xs font-extrabold uppercase tracking-[0.24em] text-oxblood dark:text-champagne">{service.category}</p>
                 <h3 className="mt-3 font-display text-3xl font-bold">{service.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-ink/65 dark:text-porcelain/65">{service.summary}</p>
+                <p className="mt-3 text-sm leading-7 text-ink/65 dark:text-porcelain/65 flex-1">{service.summary}</p>
                 <span className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-oxblood dark:text-champagne group-hover:gap-3 transition-all">
-                  Read more <ArrowRight className="h-4 w-4" />
+                  Read more <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </span>
               </Link>
             </ScaleInHover>
@@ -133,7 +142,7 @@ export default function HomePage() {
         <div className="grid gap-5 md:grid-cols-3">
           {testimonials.slice(0, 3).map((item) => (
             <div key={item.name} className="rounded-[2rem] border border-white/10 bg-white dark:bg-white/5 p-7">
-              <div className="grid h-14 w-14 place-items-center rounded-full bg-champagne font-display text-2xl font-bold text-ink dark:text-porcelain">
+              <div className="grid h-14 w-14 place-items-center rounded-full bg-champagne font-display text-2xl font-bold text-ink dark:text-porcelain" aria-hidden="true">
                 {item.name.charAt(0)}
               </div>
               <p className="mt-5 text-sm leading-7 text-ink/80 dark:text-white/80">&ldquo;{item.quote}&rdquo;</p>
@@ -145,7 +154,7 @@ export default function HomePage() {
       </Section>
 
       <Section eyebrow="Insurance Partners" title="Multi-insurer access for better comparison." className="overflow-hidden">
-        <div className="relative flex w-full flex-col gap-4 overflow-hidden mask-fade-edges py-4">
+        <div className="relative flex w-full flex-col gap-4 overflow-hidden mask-fade-edges py-4" aria-label="Our Partners Carousel">
           <div className="flex w-max animate-marquee gap-4 hover:[animation-play-state:paused]">
             {[...partners, ...partners].map((partner, index) => (
               <div
@@ -163,11 +172,11 @@ export default function HomePage() {
         <div className="grid gap-5 md:grid-cols-3">
           {blogs.map((post) => (
             <ScaleInHover key={post.slug}>
-              <Link href={`/blogs/${post.slug}`} className="block h-full rounded-[2rem] bg-white dark:bg-white/5 dark:border-white/10 border border-transparent p-7 shadow-sm transition-all hover:shadow-premium-hover">
-                <BarChart3 className="h-8 w-8 text-oxblood dark:text-champagne" />
+              <Link href={`/blogs/${post.slug}`} className="flex flex-col h-full rounded-[2rem] bg-white dark:bg-white/5 dark:border-white/10 border border-transparent p-7 shadow-sm transition-all hover:shadow-premium-hover focus:outline-none focus:ring-4 focus:ring-oxblood dark:focus:ring-champagne">
+                <BarChart3 className="h-8 w-8 text-oxblood dark:text-champagne" aria-hidden="true" />
                 <p className="mt-4 text-xs font-bold uppercase tracking-[0.24em] text-oxblood dark:text-champagne">{post.category}</p>
                 <h3 className="mt-3 font-display text-3xl font-bold">{post.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-ink/65 dark:text-porcelain/65">{post.excerpt}</p>
+                <p className="mt-3 text-sm leading-7 text-ink/65 dark:text-porcelain/65 flex-1">{post.excerpt}</p>
               </Link>
             </ScaleInHover>
           ))}

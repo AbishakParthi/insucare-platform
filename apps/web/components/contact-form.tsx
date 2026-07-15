@@ -3,6 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { useId } from "react";
 
 const schema = z.object({
   name: z.string().min(2, "Please enter your name"),
@@ -15,6 +16,7 @@ const schema = z.object({
 type FormValues = z.infer<typeof schema>;
 
 export function ContactForm({ variant = "contact" }: { variant?: "contact" | "claim" | "career" }) {
+  const formId = useId();
   const {
     register,
     handleSubmit,
@@ -64,21 +66,21 @@ export function ContactForm({ variant = "contact" }: { variant?: "contact" | "cl
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="glass-card grid gap-5 rounded-[2rem] p-6 shadow-premium self-start">
+    <form onSubmit={handleSubmit(onSubmit)} className="glass-card grid gap-5 rounded-[2rem] p-6 shadow-premium self-start" noValidate>
       <div className="grid gap-5 md:grid-cols-2">
-        <Field label="Full name" error={errors.name?.message}>
-          <input {...register("name")} className="input" placeholder="Your name" />
+        <Field label="Full name" error={errors.name?.message} id={`${formId}-name`}>
+          <input {...register("name")} id={`${formId}-name`} className="input" placeholder="Your name" autoComplete="name" aria-invalid={!!errors.name} aria-describedby={errors.name ? `${formId}-name-error` : undefined} />
         </Field>
-        <Field label="Email" error={errors.email?.message}>
-          <input {...register("email")} className="input" placeholder="you@example.com" />
+        <Field label="Email" error={errors.email?.message} id={`${formId}-email`}>
+          <input {...register("email")} id={`${formId}-email`} type="email" className="input" placeholder="you@example.com" autoComplete="email" aria-invalid={!!errors.email} aria-describedby={errors.email ? `${formId}-email-error` : undefined} />
         </Field>
       </div>
       <div className="grid gap-5 md:grid-cols-2">
-        <Field label="Phone" error={errors.phone?.message}>
-          <input {...register("phone")} className="input" placeholder="+91" />
+        <Field label="Phone" error={errors.phone?.message} id={`${formId}-phone`}>
+          <input {...register("phone")} id={`${formId}-phone`} type="tel" className="input" placeholder="+91" autoComplete="tel" aria-invalid={!!errors.phone} aria-describedby={errors.phone ? `${formId}-phone-error` : undefined} />
         </Field>
-        <Field label="Insurance interest" error={errors.interest?.message}>
-          <select {...register("interest")} className="input">
+        <Field label="Insurance interest" error={errors.interest?.message} id={`${formId}-interest`}>
+          <select {...register("interest")} id={`${formId}-interest`} className="input" aria-invalid={!!errors.interest} aria-describedby={errors.interest ? `${formId}-interest-error` : undefined}>
             <option value="">Select interest</option>
             <option>Corporate Insurance</option>
             <option>Employee Benefits</option>
@@ -89,10 +91,10 @@ export function ContactForm({ variant = "contact" }: { variant?: "contact" | "cl
           </select>
         </Field>
       </div>
-      <Field label="Message" error={errors.message?.message}>
-        <textarea {...register("message")} className="input min-h-32" placeholder="Tell us what you need help with" />
+      <Field label="Message" error={errors.message?.message} id={`${formId}-message`}>
+        <textarea {...register("message")} id={`${formId}-message`} className="input min-h-32" placeholder="Tell us what you need help with" aria-invalid={!!errors.message} aria-describedby={errors.message ? `${formId}-message-error` : undefined} />
       </Field>
-      <button disabled={isSubmitting} className="rounded-full bg-oxblood px-6 py-3 font-bold text-white disabled:opacity-60">
+      <button disabled={isSubmitting} className="rounded-full bg-oxblood px-6 py-3 font-bold text-white disabled:opacity-60 focus:ring-4 focus:ring-oxblood/50 outline-none">
         {isSubmitting ? "Sending..." : "Submit Enquiry"}
       </button>
       <style jsx>{`
@@ -127,12 +129,12 @@ export function ContactForm({ variant = "contact" }: { variant?: "contact" | "cl
   );
 }
 
-function Field({ label, error, children }: { label: string; error?: string; children: React.ReactNode }) {
+function Field({ label, error, id, children }: { label: string; error?: string; id: string; children: React.ReactNode }) {
   return (
-    <label className="flex flex-col gap-2 text-sm font-bold text-ink dark:text-porcelain">
-      {label}
+    <div className="flex flex-col gap-2 text-sm font-bold text-ink dark:text-porcelain">
+      <label htmlFor={id}>{label}</label>
       {children}
-      {error ? <span className="text-xs font-semibold text-oxblood dark:text-champagne">{error}</span> : null}
-    </label>
+      {error ? <span id={`${id}-error`} className="text-xs font-semibold text-oxblood dark:text-champagne" role="alert">{error}</span> : null}
+    </div>
   );
 }

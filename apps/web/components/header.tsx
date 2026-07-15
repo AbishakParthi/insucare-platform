@@ -44,13 +44,14 @@ export function Header() {
             IRDAI Registered
           </span>
         </Link>
-        <nav className="hidden items-center gap-4 xl:gap-5 text-sm font-semibold text-ink/80 dark:text-porcelain/80 lg:flex mr-auto ml-2 xl:ml-6">
+        <nav aria-label="Main Navigation" className="hidden items-center gap-4 xl:gap-5 text-sm font-semibold text-ink/80 dark:text-porcelain/80 lg:flex mr-auto ml-2 xl:ml-6">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
               <Link 
                 key={link.href} 
-                href={link.href} 
+                href={link.href}
+                aria-current={isActive ? "page" : undefined}
                 className={`relative group transition-colors hover:text-oxblood dark:hover:text-champagne ${isActive ? "text-oxblood dark:text-champagne" : ""}`}
               >
                 {link.label}
@@ -68,8 +69,9 @@ export function Header() {
           <Link
             href={`tel:${company.phone.replace(/\s/g, "")}`}
             className="inline-flex items-center gap-2 rounded-full border border-oxblood/15 dark:border-white/15 px-4 py-2 text-sm font-bold text-oxblood dark:text-white transition-all hover:border-oxblood dark:hover:border-champagne hover:text-oxblood dark:hover:text-champagne hover:scale-105 active:scale-95"
+            aria-label={`Call us at ${company.phone}`}
           >
-            <Phone className="h-4 w-4" />
+            <Phone className="h-4 w-4" aria-hidden="true" />
             {company.phone}
           </Link>
           <Link href="/contact" className="rounded-full bg-oxblood px-5 py-2.5 text-sm font-bold text-white shadow-premium transition-all hover:bg-garnet hover:scale-105 active:scale-95 hover:shadow-glow whitespace-nowrap">
@@ -80,7 +82,9 @@ export function Header() {
           <ThemeToggle />
           <button 
             className="rounded-full border border-oxblood/15 dark:border-white/15 text-oxblood dark:text-white flex h-[46px] w-[46px] items-center justify-center overflow-hidden" 
-            aria-label={isOpen ? "Close navigation" : "Open navigation"}
+            aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={isOpen}
+            aria-controls="mobile-menu"
             onClick={() => setIsOpen(!isOpen)}
           >
           <AnimatePresence mode="wait" initial={false}>
@@ -92,7 +96,7 @@ export function Header() {
                 exit={{ opacity: 0, rotate: 90 }}
                 transition={{ duration: 0.2 }}
               >
-                <X className="h-5 w-5" />
+                <X className="h-5 w-5" aria-hidden="true" />
               </motion.div>
             ) : (
               <motion.div
@@ -102,7 +106,7 @@ export function Header() {
                 exit={{ opacity: 0, rotate: 90 }}
                 transition={{ duration: 0.2 }}
               >
-                <Menu className="h-5 w-5" />
+                <Menu className="h-5 w-5" aria-hidden="true" />
               </motion.div>
             )}
           </AnimatePresence>
@@ -114,6 +118,7 @@ export function Header() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
+            id="mobile-menu"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
@@ -121,6 +126,7 @@ export function Header() {
             className="border-t border-oxblood/10 dark:border-white/10 bg-white/95 dark:bg-ink/95 backdrop-blur-xl px-6 py-6 lg:hidden shadow-premium-hover absolute w-full left-0 overflow-hidden"
           >
             <motion.nav 
+              aria-label="Mobile Navigation"
               initial="closed"
               animate="open"
               exit="closed"
@@ -135,6 +141,7 @@ export function Header() {
                   <Link 
                     href={link.href} 
                     onClick={() => setIsOpen(false)}
+                    aria-current={pathname === link.href ? "page" : undefined}
                     className={`block text-lg font-bold transition-colors ${pathname === link.href ? "text-oxblood dark:text-champagne" : "text-ink/80 dark:text-porcelain/80 hover:text-oxblood dark:hover:text-champagne"}`}
                   >
                     {link.label}
@@ -144,9 +151,10 @@ export function Header() {
               <motion.div variants={{ closed: { opacity: 0, y: 16 }, open: { opacity: 1, y: 0 } }} className="mt-2 flex flex-col gap-4 border-t border-oxblood/10 dark:border-white/10 pt-6">
                 <Link
                   href={`tel:${company.phone.replace(/\s/g, "")}`}
+                  aria-label={`Call us at ${company.phone}`}
                   className="inline-flex items-center justify-center gap-2 rounded-full border border-oxblood/15 dark:border-white/15 px-4 py-3.5 text-sm font-bold text-oxblood dark:text-white hover:bg-oxblood/5 dark:hover:bg-white/5 transition-transform active:scale-95"
                 >
-                  <Phone className="h-4 w-4" />
+                  <Phone className="h-4 w-4" aria-hidden="true" />
                   {company.phone}
                 </Link>
                 <Link 

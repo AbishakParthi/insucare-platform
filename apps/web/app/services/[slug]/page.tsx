@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { services } from "@insucare/domain";
+import { services, company } from "@insucare/domain";
 import { CheckCircle2 } from "lucide-react";
 import { ContactForm } from "../../../components/contact-form";
 import { Section } from "../../../components/section";
@@ -14,9 +14,26 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const service = services.find((item) => item.slug === slug);
+  if (!service) return {};
+
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.insucareindia.com";
+  const serviceUrl = `${siteUrl}/services/${slug}`;
+
   return {
-    title: service?.title ?? "Service",
-    description: service?.summary
+    title: service.title,
+    description: service.summary,
+    alternates: { canonical: serviceUrl },
+    openGraph: {
+      title: service.title,
+      description: service.summary,
+      url: serviceUrl,
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: service.title,
+      description: service.summary,
+    },
   };
 }
 
@@ -25,8 +42,40 @@ export default async function ServiceDetailPage({ params }: Props) {
   const service = services.find((item) => item.slug === slug);
   if (!service) notFound();
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: service.faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer
+      }
+    }))
+  };
+
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    serviceType: service.title,
+    provider: {
+      "@type": "InsuranceAgency",
+      name: company.displayName
+    },
+    description: service.summary
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
       <Section eyebrow={service.category} title={service.title} intro={service.overview}>
         <div className="grid gap-8 lg:grid-cols-[1fr_380px]">
           <div className="grid gap-8">
