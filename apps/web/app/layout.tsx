@@ -21,7 +21,7 @@ const sans = Manrope({
   variable: "--font-sans"
 });
 
-const siteUrl = "https://insucare-platform-web.vercel.app";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.insucareindia.com";
 const gaId = process.env.NEXT_PUBLIC_GA_ID ?? "G-XXXXXXXXXX";
 const clarityId = process.env.NEXT_PUBLIC_CLARITY_ID ?? "xxxxxxxxx";
 

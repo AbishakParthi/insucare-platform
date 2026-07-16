@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { blogs, jobs, services } from "@insucare/domain";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const siteUrl = "https://insucare-platform-web.vercel.app";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.insucareindia.com";
   
   type RouteDef = {
     url: string;

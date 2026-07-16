@@ -3,7 +3,7 @@ import Link from "next/link";
 import { blogCategories, blogs, company } from "@insucare/domain";
 import { Section } from "../../components/section";
 
-const siteUrl = "https://insucare-platform-web.vercel.app";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.insucareindia.com";
 const pageUrl = `${siteUrl}/blogs`;
 
 export const metadata: Metadata = {
