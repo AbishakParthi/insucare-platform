@@ -83,8 +83,8 @@ export default function ContactPage() {
             <div className="mt-6 overflow-hidden rounded-[2rem] border border-oxblood/10 dark:border-white/10 bg-porcelain dark:bg-[#253040]">
               <iframe
                 title="InsuCARE Hyderabad Office Map"
-                src="https://www.google.com/maps?q=Goodlife%20Retreat%20Kakatiya%20Nagar%20Hyderabad%20500007&output=embed"
-                className="h-80 w-full border-0"
+                src="https://maps.google.com/maps?q=Goodlife%20Retreat%20Kakatiya%20Nagar%20Hyderabad%20500007&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                className="h-80 w-full border-0 dark:invert-[90%] dark:hue-rotate-180 dark:brightness-90 dark:contrast-125 dark:opacity-90"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />
