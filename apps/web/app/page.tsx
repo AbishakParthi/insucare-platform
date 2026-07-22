@@ -37,10 +37,10 @@ export default function HomePage() {
               </h1>
             </FadeInStaggerItem>
             <FadeInStaggerItem>
-              <p className="mt-7 max-w-2xl text-xl leading-9 text-white/75">{brand.subheadline}</p>
+              <p className="mt-7 max-w-2xl text-xl leading-9 text-white/90">{brand.subheadline}</p>
             </FadeInStaggerItem>
             <FadeInStaggerItem className="mt-9 flex flex-wrap gap-4">
-              <Link href="/contact" className="rounded-full bg-champagne px-7 py-4 font-extrabold text-ink dark:text-porcelain transition-transform hover:scale-105 active:scale-95 shadow-glow">
+              <Link href="/contact" className="rounded-full bg-champagne px-7 py-4 font-extrabold text-ink dark:text-ink transition-transform hover:scale-105 active:scale-95 shadow-glow">
                 Get Free Consultation
               </Link>
               <Link href="/services" className="rounded-full border border-white/20 px-7 py-4 font-extrabold text-white transition-all hover:bg-white/10 hover:border-white hover:scale-105 active:scale-95">

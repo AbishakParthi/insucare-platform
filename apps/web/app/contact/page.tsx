@@ -98,7 +98,12 @@ export default function ContactPage() {
 
 function ContactCard({ icon, title, value, href }: { icon: React.ReactNode; title: string; value: string; href: string }) {
   return (
-    <a href={href} className="rounded-[2rem] border border-oxblood/10 dark:border-white/10 bg-white dark:bg-white/5 p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-premium focus:outline-none focus:ring-4 focus:ring-oxblood dark:focus:ring-champagne block">
+    <a 
+      href={href} 
+      target={href.startsWith("http") ? "_blank" : undefined}
+      rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+      className="rounded-[2rem] border border-oxblood/10 dark:border-white/10 bg-white dark:bg-white/5 p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-premium focus:outline-none focus:ring-4 focus:ring-oxblood dark:focus:ring-champagne block"
+    >
       <div className="text-oxblood dark:text-champagne [&>svg]:h-8 [&>svg]:w-8">{icon}</div>
       <h2 className="mt-4 font-display text-3xl font-bold">{title}</h2>
       <p className="mt-2 text-ink/70 dark:text-porcelain/70">{value}</p>

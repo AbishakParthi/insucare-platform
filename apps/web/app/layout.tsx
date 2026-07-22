@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
 import { company } from "@insucare/domain";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import Script from "next/script";
 import { FloatingActions } from "../components/floating-actions";
 import { Footer } from "../components/footer";
 import { Header } from "../components/header";
@@ -111,7 +112,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <GoogleAnalytics gaId={gaId} />
         
         {/* Microsoft Clarity */}
-        <script
+        <Script
+          id="microsoft-clarity"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               (function(c,l,a,r,i,t,y){
